@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="application_name">EWM_PickingandPutaway</string>
+    <string name="eset_physicalinventorycountset">PhysicalInventoryCountSet</string>
+    <string name="eset_physicalinventorycountset_single">PhysicalInventoryCount</string>
+    <string name="eset_repackhuitemset">RepackHuItemSet</string>
+    <string name="eset_repackhuitemset_single">RepackHuItem</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--    <string name="application_name">EWM_PutAway</string>-->
+    <string name="eset_sapcurrencies">SAPCurrencies</string>
+    <string name="eset_sapcurrencies_single">SAPCurrency</string>
+    <string name="eset_sapunitsofmeasure">SAPUnitsOfMeasure</string>
+    <string name="eset_sapunitsofmeasure_single">SAPUnitOfMeasure</string>
+    <string name="eset_warehouseorder">WarehouseOrder</string>
+    <string name="eset_warehouseorder_single">WarehouseOrderType</string>
+    <string name="eset_warehousetask">WarehouseTask</string>
+    <string name="eset_warehousetask_single">WarehouseTaskType</string>
+    <string name="eset_warehousetaskexceptioncode">WarehouseTaskExceptionCode</string>
+    <string name="eset_warehousetaskexceptioncode_single">WarehouseTaskExceptionCodeType</string>
+</resources>

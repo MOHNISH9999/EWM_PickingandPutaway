@@ -1,0 +1,2 @@
+rootProject.name = "EWM_PickingandPutaway"
+include ':app'

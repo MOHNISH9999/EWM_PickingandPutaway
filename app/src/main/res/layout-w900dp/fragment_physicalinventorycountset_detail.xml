@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".mdui.physicalinventorycountset.PhysicalInventoryCountSetActivity">
+    <data>
+        <import type = "com.sap.cloud.android.odata.crvwm_physicalinventory_srv_entities.PhysicalInventoryCount" />
+        <variable name="physicalInventoryCount" type="PhysicalInventoryCount"/>
+        <variable name="handler" type="com.company.ewm_pickingandputaway.mdui.physicalinventorycountset.PhysicalInventoryCountSetDetailFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="PhyInvDocGUID"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.phyInvDocGUID).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="PhyInvDocument"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.phyInvDocument).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="PhyInvDocItem"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.phyInvDocItem).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="PhyInvDocYear"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.phyInvDocYear).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="WarehouseNumber"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.warehouseNumber).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="DocumentType"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.documentType).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="ProposeIndicator"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.proposeIndicator).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="BlockingIndicator"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.blockingIndicator).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="FreezeBookInvInd"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.freezeBookInvInd).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="StorageBin"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.storageBin).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="Product"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.product).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="HandlingUnit"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.handlingUnit).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="HandlingUnitParent"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.handlingUnitParent).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="IsNestedHU"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.isNestedHU).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="IsTopHU"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.isTopHU).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="Reason"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.reason).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="BookedUnit"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.bookedUnit).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="BookedQuantity"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.bookedQuantity).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="Unit"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.unit).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="Quantity"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.quantity).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="ExceptionCode"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.exceptionCode).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="Queue"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.queue).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="Itemtype"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.itemtype).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="IsEmptyBin"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.isEmptyBin).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="IsEmptyHU"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.isEmptyHU).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="IsCompleteHU"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.isCompleteHU).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="IsMissingHU"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.isMissingHU).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="WarehouseOrder"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.warehouseOrder).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="IsCountCompleted"
+            app:valueText="@{physicalInventoryCount.getOptionalValue(PhysicalInventoryCount.isCountCompleted).toString()}" />
+
+    </LinearLayout>
+</layout>

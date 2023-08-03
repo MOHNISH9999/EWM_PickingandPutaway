@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="com.company.ewm_pickingandputaway.databinding.simplepropertyformcell.Converter"/>
+        <import type="android.view.View"/>
+        <variable name="warehouseOrderType" type="com.sap.cloud.android.odata.cds_xcrvwmxapi_whse_order_task_entities.WarehouseOrderType"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true">
+        <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/create_update_warehouseordertype"
+                android:orientation="vertical">
+
+                <com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/warehouseorderstatusid"
+                    android:tag="WarehouseOrderStatus"
+                    android:maxLength="@{1}"
+                    app:key="WarehouseOrderStatus"
+                    app:value="@={warehouseOrderType.warehouseOrderStatus}">
+                </com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell>
+                <com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/warehouseorderstatusnameid"
+                    android:tag="WarehouseOrderStatusName"
+                    android:maxLength="@{60}"
+                    app:key="WarehouseOrderStatusName"
+                    app:value="@={warehouseOrderType.warehouseOrderStatusName}">
+                </com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell>
+                <com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/creationdatetimeid"
+                    android:tag="CreationDateTime"
+                    app:key="CreationDateTime"
+                    app:value="@={Converter.toString(creationdatetimeid, warehouseOrderType.creationDateTime, warehouseOrderType.creationDateTime)}">
+                </com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell>
+                <com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/warehouseorderstartdatetimeid"
+                    android:tag="WarehouseOrderStartDateTime"
+                    app:key="WarehouseOrderStartDateTime"
+                    app:value="@={Converter.toString(warehouseorderstartdatetimeid, warehouseOrderType.warehouseOrderStartDateTime, warehouseOrderType.warehouseOrderStartDateTime)}">
+                </com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell>
+                <com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/whseorderconfirmeddatetimeid"
+                    android:tag="WhseOrderConfirmedDateTime"
+                    app:key="WhseOrderConfirmedDateTime"
+                    app:value="@={Converter.toString(whseorderconfirmeddatetimeid, warehouseOrderType.whseOrderConfirmedDateTime, warehouseOrderType.whseOrderConfirmedDateTime)}">
+                </com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell>
+                <com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lastchangedatetimeid"
+                    android:tag="LastChangeDateTime"
+                    app:key="LastChangeDateTime"
+                    app:value="@={Converter.toString(lastchangedatetimeid, warehouseOrderType.lastChangeDateTime, warehouseOrderType.lastChangeDateTime)}">
+                </com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell>
+                <com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/whseorderlateststartdatetimeid"
+                    android:tag="WhseOrderLatestStartDateTime"
+                    app:key="WhseOrderLatestStartDateTime"
+                    app:value="@={Converter.toString(whseorderlateststartdatetimeid, warehouseOrderType.whseOrderLatestStartDateTime, warehouseOrderType.whseOrderLatestStartDateTime)}">
+                </com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell>
+                <com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/executingresourceid"
+                    android:tag="ExecutingResource"
+                    android:maxLength="@{18}"
+                    app:key="ExecutingResource"
+                    app:value="@={warehouseOrderType.executingResource}">
+                </com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

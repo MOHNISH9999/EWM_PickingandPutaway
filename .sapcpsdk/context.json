@@ -1,0 +1,22 @@
+{
+  "projectInfo": {
+    "projectName": "EWM_PickingandPutaway",
+    "createdDate": "Thursday, August 3, 2023 at 11:15:16 AM",
+    "regenerateProxyClassDate": ""
+  },
+  "cloudApplication": {
+    "cloudApplicationId": "com.sap.pickingTestewm",
+    "destinations": [
+      {
+        "id": "com.sap.edm.sampleservice.v2"
+      },
+      {
+        "id": "com.sap.pickingTestewmPick"
+      },
+      {
+        "id": "com.sap.pickingTestewmPutaway"
+      }
+    ]
+  },
+  "msServerConfigurationName": "SAP Mobile Services Trial"
+}

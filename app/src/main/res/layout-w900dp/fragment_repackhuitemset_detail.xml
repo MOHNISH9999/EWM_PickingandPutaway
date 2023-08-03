@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".mdui.repackhuitemset.RepackHuItemSetActivity">
+    <data>
+        <import type = "com.sap.cloud.android.odata.crvwm_physicalinventory_srv_entities.RepackHuItem" />
+        <variable name="repackHuItem" type="RepackHuItem"/>
+        <variable name="handler" type="com.company.ewm_pickingandputaway.mdui.repackhuitemset.RepackHuItemSetDetailFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="WarehouseNumber"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.warehouseNumber).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="WarehouseTask"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.warehouseTask).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="WarehouseTaskItem"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.warehouseTaskItem).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="WarehouseOrder"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.warehouseOrder).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="DeliveryNumber"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.deliveryNumber).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="DeliveryItem"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.deliveryItem).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="DocumentCategory"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.documentCategory).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="Product"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.product).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="ProductText"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.productText).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="SerialManaged"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.serialManaged).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="Batch"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.batch).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="PackMaterial"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.packMaterial).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="SourceHU"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.sourceHU).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="DestinationHU"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.destinationHU).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="SourceBin"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.sourceBin).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="DestinationBin"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.destinationBin).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="Unit"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.unit).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="Quantity"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.quantity).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="SourceQuantity"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.sourceQuantity).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="ExceptionCode"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.exceptionCode).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="ChangeDestBin"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.changeDestBin).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="ChangeBatch"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.changeBatch).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="SerialNumberFrom"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.serialNumberFrom).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="SerialNumberTo"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.serialNumberTo).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="Status"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.status).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="StatusText"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.statusText).toString()}" />
+
+        <com.sap.cloud.mobile.fiori.misc.KeyValueCell
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:keyText="IsSourceHUNested"
+            app:valueText="@{repackHuItem.getOptionalValue(RepackHuItem.isSourceHUNested).toString()}" />
+
+    </LinearLayout>
+</layout>

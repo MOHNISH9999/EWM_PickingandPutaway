@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://s4hana2021:8002/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4hana2021:8002/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4hana2021:8002/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+        <edmx:Include Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4hana2021:8002/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4hana2021:8002/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4hana2021:8002/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4hana2021:8002/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4hana2021:8002/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4hana2021:8002/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4hana2021:8002/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://s4hana2021:8002/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_xcrvwmxapi_whse_order_task" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="WarehouseTaskType" sap:label="Warehouse Task" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Warehouse"/>
+                    <PropertyRef Name="WarehouseTask"/>
+                    <PropertyRef Name="WarehouseTaskItem"/>
+                </Key>
+                <Property Name="Warehouse" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Warehouse Number" sap:quickinfo="Warehouse Number/Warehouse Complex"/>
+                <Property Name="WarehouseTask" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative" sap:label="Warehouse Task"/>
+                <Property Name="WarehouseTaskItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="WT Item" sap:quickinfo="Warehouse Task Item"/>
+                <Property Name="WarehouseOrder" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Warehouse Order" sap:quickinfo="Warehouse Order Number"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Creation Time"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Time of Change"/>
+                <Property Name="ConfirmationUTCDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Time Stamp" sap:quickinfo="UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"/>
+                <Property Name="WhseTaskPlannedClosingDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Planned Closing Time" sap:quickinfo="Planned Closing Date/Time"/>
+                <Property Name="WhseTaskGoodsReceiptDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="GR Date" sap:quickinfo="Date and Time of Goods Receipt"/>
+                <Property Name="WarehouseTaskStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="WT Status" sap:quickinfo="Warehouse Task Status"/>
+                <Property Name="WarehouseTaskStatusName" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="WarehouseProcessType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Whse Process Type" sap:quickinfo="Warehouse Process Type"/>
+                <Property Name="WarehouseProcessTypeName" Type="Edm.String" MaxLength="40" sap:label="Description"/>
+                <Property Name="IsHandlingUnitWarehouseTask" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="HU Warehouse Task" sap:quickinfo="Handling Unit Warehouse Task"/>
+                <Property Name="ProductName" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Product" sap:quickinfo="Product Number"/>
+                <Property Name="ProductDescription" Type="Edm.String" MaxLength="40" sap:label="Product Description"/>
+                <Property Name="Batch" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Batch"/>
+                <Property Name="BatchChangeIsNotAllowed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Change Batch" sap:quickinfo="Changing the Batch is not Allowed"/>
+                <Property Name="StockType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Stock Type"/>
+                <Property Name="StockTypeName" Type="Edm.String" MaxLength="30" sap:label="Descr. of Stock Type" sap:quickinfo="Description of Stock Type"/>
+                <Property Name="StockOwner" Type="Edm.String" MaxLength="10"/>
+                <Property Name="EntitledToDisposeParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Disposal Party" sap:quickinfo="Party Entitled to Dispose"/>
+                <Property Name="StockDocumentCategory" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Type" sap:quickinfo="Type: Sales Order Stock or Project Stock"/>
+                <Property Name="StockDocumentNumber" Type="Edm.String" MaxLength="35" sap:label="Sales Order/Project" sap:quickinfo="Number of the Sales Order or Project for Special Stock"/>
+                <Property Name="StockItemNumber" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Sales Order Item" sap:quickinfo="Sales Order Item for Sales Order Stock"/>
+                <Property Name="ExecutingResource" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Resource" sap:quickinfo="Executing Resource (Means of Transport or User)"/>
+                <Property Name="ProductionOrder" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Manufacturing Order"/>
+                <Property Name="ProductionSupplyArea" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Supply Area" sap:quickinfo="Production Supply Area"/>
+                <Property Name="Delivery" Type="Edm.String" MaxLength="35" sap:display-format="UpperCase" sap:label="Document Number"/>
+                <Property Name="DeliveryItem" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Item Number"/>
+                <Property Name="PurchasingDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchasing Document" sap:quickinfo="Purchasing Document Number"/>
+                <Property Name="PurchasingDocumentItem" Type="Edm.String" MaxLength="5" sap:display-format="NonNegative" sap:label="Item" sap:quickinfo="Item Number of Purchasing Document"/>
+                <Property Name="SalesDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales document" sap:quickinfo="Sales and Distribution Document Number"/>
+                <Property Name="SalesDocumentItem" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Sales Document Item"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="AlternativeUnit" Type="Edm.String" MaxLength="3" sap:label="Alt. Unit of Measure" sap:quickinfo="Alternative Unit of Measure for Stockkeeping Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="TargetQuantityInBaseUnit" Type="Edm.Decimal" Precision="31" Scale="14" sap:unit="BaseUnit" sap:label="Target Quantity Base" sap:quickinfo="Target Quantity in Base Unit of Measure"/>
+                <Property Name="TargetQuantityInAltvUnit" Type="Edm.Decimal" Precision="31" Scale="14" sap:unit="AlternativeUnit" sap:label="Target Quantity Altn" sap:quickinfo="Target Quantity in Alternative Unit of Measure"/>
+                <Property Name="ActualQuantityInBaseUnit" Type="Edm.Decimal" Precision="31" Scale="14" sap:unit="BaseUnit"/>
+                <Property Name="ActualQuantityInAltvUnit" Type="Edm.Decimal" Precision="31" Scale="14" sap:unit="AlternativeUnit"/>
+                <Property Name="DifferenceQuantityInBaseUnit" Type="Edm.Decimal" Precision="31" Scale="14" sap:unit="BaseUnit"/>
+                <Property Name="DifferenceQuantityInAltvUnit" Type="Edm.Decimal" Precision="31" Scale="14" sap:unit="AlternativeUnit"/>
+                <Property Name="WhseTaskNetWeightUnitOfMeasure" Type="Edm.String" MaxLength="3" sap:label="Weight Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="NetWeight" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="WhseTaskNetWeightUnitOfMeasure" sap:label="Loading Weight" sap:quickinfo="Loading or Net Weight"/>
+                <Property Name="WhseTaskNetVolumeUnitOfMeasure" Type="Edm.String" MaxLength="3" sap:label="Volume Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="WhseTaskNetVolume" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="WhseTaskNetVolumeUnitOfMeasure" sap:label="Loading Volume" sap:quickinfo="Loading or Net Volume"/>
+                <Property Name="SourceStorageType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Source Storage Type"/>
+                <Property Name="SourceStorageTypeName" Type="Edm.String" MaxLength="40" sap:label="Description"/>
+                <Property Name="SourceStorageSection" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Source Stor. Section" sap:quickinfo="Source Storage Section"/>
+                <Property Name="SourceStorageBin" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Source Storage Bin"/>
+                <Property Name="DestinationStorageType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Dest. Storage Type" sap:quickinfo="Destination Storage Type"/>
+                <Property Name="DestinationStorageTypeName" Type="Edm.String" MaxLength="40" sap:label="Description"/>
+                <Property Name="DestinationStorageSection" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Dest. Stor. Section" sap:quickinfo="Destination Storage Section"/>
+                <Property Name="DestinationStorageBin" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Destination Bin" sap:quickinfo="Destination Storage Bin"/>
+                <Property Name="DestinationResource" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Dest.Resource" sap:quickinfo="Destination Resource (Means of Transport or User)"/>
+                <Property Name="ActivityArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Activity Area"/>
+                <Property Name="ActivityAreaName" Type="Edm.String" MaxLength="40" sap:label="Description"/>
+                <Property Name="SourceHandlingUnit" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Source Handling Unit"/>
+                <Property Name="DestinationHandlingUnit" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Dest. HU" sap:quickinfo="Destination Handling Unit"/>
+                <Property Name="WarehouseTaskExceptionCode" Type="Edm.String" MaxLength="1"/>
+                <NavigationProperty Name="to_WarehouseOrder" Relationship="cds_xcrvwmxapi_whse_order_task.assoc_6BD4B1C01FB1DA4577BE332C92CF5213" FromRole="FromRole_assoc_6BD4B1C01FB1DA4577BE332C92CF5213" ToRole="ToRole_assoc_6BD4B1C01FB1DA4577BE332C92CF5213"/>
+                <NavigationProperty Name="to_WarehouseTaskExceptionCode" Relationship="cds_xcrvwmxapi_whse_order_task.assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82" FromRole="FromRole_assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82" ToRole="ToRole_assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82"/>
+            </EntityType>
+            <EntityType Name="WarehouseOrderType" sap:label="Root View for Warehouse Order" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Warehouse"/>
+                    <PropertyRef Name="WarehouseOrder"/>
+                </Key>
+                <Property Name="Warehouse" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Warehouse Number" sap:quickinfo="Warehouse Number/Warehouse Complex"/>
+                <Property Name="WarehouseOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="NonNegative" sap:label="Warehouse Order" sap:quickinfo="Warehouse Order Number"/>
+                <Property Name="WarehouseOrderStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Whse Order Status" sap:quickinfo="Warehouse Order Status"/>
+                <Property Name="WarehouseOrderStatusName" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Creation Time"/>
+                <Property Name="WarehouseOrderStartDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Start Time"/>
+                <Property Name="WhseOrderConfirmedDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Confirmation Time" sap:quickinfo="Time of Confirmation"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Time of Change"/>
+                <Property Name="WhseOrderLatestStartDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Latest Starting Date" sap:quickinfo="Latest Starting Date (LSD)"/>
+                <Property Name="ExecutingResource" Type="Edm.String" MaxLength="18" sap:label="Resource" sap:quickinfo="Resource (Means of Transportation or User)"/>
+                <NavigationProperty Name="to_WarehouseTask" Relationship="cds_xcrvwmxapi_whse_order_task.assoc_579329E0A8287B86A4B304F492A840D1" FromRole="FromRole_assoc_579329E0A8287B86A4B304F492A840D1" ToRole="ToRole_assoc_579329E0A8287B86A4B304F492A840D1"/>
+            </EntityType>
+            <EntityType Name="WarehouseTaskExceptionCodeType" sap:label="Warehouse Task Exception Code" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Warehouse"/>
+                    <PropertyRef Name="WarehouseTask"/>
+                    <PropertyRef Name="WarehouseTaskItem"/>
+                    <PropertyRef Name="WarehouseTaskExceptionCode"/>
+                    <PropertyRef Name="BusinessContext"/>
+                    <PropertyRef Name="BusinessContextExecutionStep"/>
+                </Key>
+                <Property Name="Warehouse" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Warehouse Number" sap:quickinfo="Warehouse Number/Warehouse Complex"/>
+                <Property Name="WarehouseTask" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative" sap:label="Warehouse Task"/>
+                <Property Name="WarehouseTaskItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="WT Item" sap:quickinfo="Warehouse Task Item"/>
+                <Property Name="WarehouseTaskExceptionCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Exception Code"/>
+                <Property Name="BusinessContext" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:label="Business Context"/>
+                <Property Name="BusinessContextExecutionStep" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Exec. Step" sap:quickinfo="Execution Step in Business Context"/>
+                <NavigationProperty Name="to_WarehouseTask" Relationship="cds_xcrvwmxapi_whse_order_task.assoc_BDDC4F486C082227B37AD0D3CA002E71" FromRole="FromRole_assoc_BDDC4F486C082227B37AD0D3CA002E71" ToRole="ToRole_assoc_BDDC4F486C082227B37AD0D3CA002E71"/>
+            </EntityType>
+            <EntityType Name="SAP__Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CurrencyCode"/>
+                </Key>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:semantics="currency-code"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="ISO code"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Short text"/>
+                <Property Name="DecimalPlaces" Type="Edm.Byte" Nullable="false" sap:label="Decimals"/>
+            </EntityType>
+            <EntityType Name="SAP__UnitOfMeasure" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UnitCode"/>
+                </Key>
+                <Property Name="UnitCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Internal UoM" sap:semantics="unit-of-measure"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="ISO code"/>
+                <Property Name="ExternalCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Commercial"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="UoM Text"/>
+                <Property Name="DecimalPlaces" Type="Edm.Int16" sap:label="Decimal Places"/>
+            </EntityType>
+            <ComplexType Name="DummyFunctionImportResult">
+                <Property Name="IsInvalid" Type="Edm.Boolean" sap:label="TRUE"/>
+            </ComplexType>
+            <Association Name="assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82" sap:content-version="1">
+                <End Type="cds_xcrvwmxapi_whse_order_task.WarehouseTaskType" Multiplicity="1" Role="FromRole_assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_xcrvwmxapi_whse_order_task.WarehouseTaskExceptionCodeType" Multiplicity="*" Role="ToRole_assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82">
+                        <PropertyRef Name="WarehouseTaskItem"/>
+                        <PropertyRef Name="WarehouseTask"/>
+                        <PropertyRef Name="Warehouse"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82">
+                        <PropertyRef Name="WarehouseTaskItem"/>
+                        <PropertyRef Name="WarehouseTask"/>
+                        <PropertyRef Name="Warehouse"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_6BD4B1C01FB1DA4577BE332C92CF5213" sap:content-version="1">
+                <End Type="cds_xcrvwmxapi_whse_order_task.WarehouseTaskType" Multiplicity="1" Role="FromRole_assoc_6BD4B1C01FB1DA4577BE332C92CF5213"/>
+                <End Type="cds_xcrvwmxapi_whse_order_task.WarehouseOrderType" Multiplicity="1" Role="ToRole_assoc_6BD4B1C01FB1DA4577BE332C92CF5213"/>
+            </Association>
+            <Association Name="assoc_579329E0A8287B86A4B304F492A840D1" sap:content-version="1">
+                <End Type="cds_xcrvwmxapi_whse_order_task.WarehouseOrderType" Multiplicity="1" Role="FromRole_assoc_579329E0A8287B86A4B304F492A840D1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_xcrvwmxapi_whse_order_task.WarehouseTaskType" Multiplicity="0..1" Role="ToRole_assoc_579329E0A8287B86A4B304F492A840D1"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_579329E0A8287B86A4B304F492A840D1">
+                        <PropertyRef Name="WarehouseOrder"/>
+                        <PropertyRef Name="Warehouse"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_579329E0A8287B86A4B304F492A840D1">
+                        <PropertyRef Name="WarehouseOrder"/>
+                        <PropertyRef Name="Warehouse"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_BDDC4F486C082227B37AD0D3CA002E71" sap:content-version="1">
+                <End Type="cds_xcrvwmxapi_whse_order_task.WarehouseTaskExceptionCodeType" Multiplicity="1" Role="FromRole_assoc_BDDC4F486C082227B37AD0D3CA002E71"/>
+                <End Type="cds_xcrvwmxapi_whse_order_task.WarehouseTaskType" Multiplicity="1" Role="ToRole_assoc_BDDC4F486C082227B37AD0D3CA002E71"/>
+            </Association>
+            <EntityContainer Name="cds_xcrvwmxapi_whse_order_task_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SAP__Currencies" EntityType="cds_xcrvwmxapi_whse_order_task.SAP__Currency" sap:content-version="1"/>
+                <EntitySet Name="SAP__UnitsOfMeasure" EntityType="cds_xcrvwmxapi_whse_order_task.SAP__UnitOfMeasure" sap:content-version="1"/>
+                <EntitySet Name="WarehouseTask" EntityType="cds_xcrvwmxapi_whse_order_task.WarehouseTaskType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="WarehouseOrder" EntityType="cds_xcrvwmxapi_whse_order_task.WarehouseOrderType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="WarehouseTaskExceptionCode" EntityType="cds_xcrvwmxapi_whse_order_task.WarehouseTaskExceptionCodeType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_579329E0A8287B86A4B304F492A840D1" Association="cds_xcrvwmxapi_whse_order_task.assoc_579329E0A8287B86A4B304F492A840D1" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="WarehouseOrder" Role="FromRole_assoc_579329E0A8287B86A4B304F492A840D1"/>
+                    <End EntitySet="WarehouseTask" Role="ToRole_assoc_579329E0A8287B86A4B304F492A840D1"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82" Association="cds_xcrvwmxapi_whse_order_task.assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="WarehouseTask" Role="FromRole_assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82"/>
+                    <End EntitySet="WarehouseTaskExceptionCode" Role="ToRole_assoc_2FE235ADBF7CB224FDCBC7D5CC5B3B82"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_6BD4B1C01FB1DA4577BE332C92CF5213" Association="cds_xcrvwmxapi_whse_order_task.assoc_6BD4B1C01FB1DA4577BE332C92CF5213" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="WarehouseTask" Role="FromRole_assoc_6BD4B1C01FB1DA4577BE332C92CF5213"/>
+                    <End EntitySet="WarehouseOrder" Role="ToRole_assoc_6BD4B1C01FB1DA4577BE332C92CF5213"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_BDDC4F486C082227B37AD0D3CA002E71" Association="cds_xcrvwmxapi_whse_order_task.assoc_BDDC4F486C082227B37AD0D3CA002E71" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="WarehouseTaskExceptionCode" Role="FromRole_assoc_BDDC4F486C082227B37AD0D3CA002E71"/>
+                    <End EntitySet="WarehouseTask" Role="ToRole_assoc_BDDC4F486C082227B37AD0D3CA002E71"/>
+                </AssociationSet>
+                <FunctionImport Name="CancelWarehouseTask" ReturnType="cds_xcrvwmxapi_whse_order_task.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_xcrvwmxapi_whse_order_task.WarehouseTaskType">
+                    <Parameter Name="Warehouse" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Warehouse Number"/>
+                    <Parameter Name="WarehouseTask" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Warehouse Task"/>
+                    <Parameter Name="WarehouseTaskItem" Type="Edm.String" Mode="In" MaxLength="4" sap:label="WT Item"/>
+                </FunctionImport>
+                <FunctionImport Name="ConfirmWarehouseTaskExact" ReturnType="cds_xcrvwmxapi_whse_order_task.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_xcrvwmxapi_whse_order_task.WarehouseTaskType">
+                    <Parameter Name="Warehouse" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Warehouse Number"/>
+                    <Parameter Name="WarehouseTask" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Warehouse Task"/>
+                    <Parameter Name="WarehouseTaskItem" Type="Edm.String" Mode="In" MaxLength="4" sap:label="WT Item"/>
+                </FunctionImport>
+                <FunctionImport Name="ConfirmWarehouseTaskHU" ReturnType="cds_xcrvwmxapi_whse_order_task.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_xcrvwmxapi_whse_order_task.WarehouseTaskType">
+                    <Parameter Name="Warehouse" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Warehouse Number"/>
+                    <Parameter Name="WarehouseTask" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Warehouse Task"/>
+                    <Parameter Name="WarehouseTaskItem" Type="Edm.String" Mode="In" MaxLength="4" sap:label="WT Item"/>
+                    <Parameter Name="DestinationStorageBin" Type="Edm.String" Mode="In" MaxLength="18" Nullable="true" sap:label="Destination Bin"/>
+                    <Parameter Name="WhseTaskExCodeDestStorageBin" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Exception Code"/>
+                </FunctionImport>
+                <FunctionImport Name="ConfirmWarehouseTaskProduct" ReturnType="cds_xcrvwmxapi_whse_order_task.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_xcrvwmxapi_whse_order_task.WarehouseTaskType">
+                    <Parameter Name="Warehouse" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Warehouse Number"/>
+                    <Parameter Name="WarehouseTask" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Warehouse Task"/>
+                    <Parameter Name="WarehouseTaskItem" Type="Edm.String" Mode="In" MaxLength="4" sap:label="WT Item"/>
+                    <Parameter Name="AlternativeUnit" Type="Edm.String" Mode="In" MaxLength="3" Nullable="true" sap:label="Alt. Unit of Measure"/>
+                    <Parameter Name="ActualQuantityInAltvUnit" Type="Edm.Decimal" Mode="In" Precision="31" Scale="14" Nullable="true" sap:label="Actual Quantity"/>
+                    <Parameter Name="DifferenceQuantityInAltvUnit" Type="Edm.Decimal" Mode="In" Precision="31" Scale="14" Nullable="true" sap:label="Difference Quantity"/>
+                    <Parameter Name="WhseTaskExceptionCodeQtyDiff" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Exception Code"/>
+                    <Parameter Name="DestinationStorageBin" Type="Edm.String" Mode="In" MaxLength="18" Nullable="true" sap:label="Destination Bin"/>
+                    <Parameter Name="WhseTaskExCodeDestStorageBin" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Exception Code"/>
+                    <Parameter Name="SourceHandlingUnit" Type="Edm.String" Mode="In" MaxLength="20" Nullable="true" sap:label="Source Handling Unit"/>
+                    <Parameter Name="DestinationHandlingUnit" Type="Edm.String" Mode="In" MaxLength="20" Nullable="true" sap:label="Source Handling Unit"/>
+                    <Parameter Name="DestinationBatch" Type="Edm.String" Mode="In" MaxLength="10" Nullable="true" sap:label="Batch"/>
+                    <Parameter Name="WhseTaskExCodeChange" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Exception Code"/>
+                </FunctionImport>
+                <FunctionImport Name="AssignWarehouseOrder" ReturnType="cds_xcrvwmxapi_whse_order_task.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_xcrvwmxapi_whse_order_task.WarehouseOrderType">
+                    <Parameter Name="Warehouse" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Warehouse Number"/>
+                    <Parameter Name="WarehouseOrder" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Warehouse Order"/>
+                    <Parameter Name="WarehouseResource" Type="Edm.String" Mode="In" MaxLength="18" Nullable="true" sap:label="Resource"/>
+                </FunctionImport>
+                <FunctionImport Name="SetInProcessWarehouseOrder" ReturnType="cds_xcrvwmxapi_whse_order_task.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_xcrvwmxapi_whse_order_task.WarehouseOrderType">
+                    <Parameter Name="Warehouse" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Warehouse Number"/>
+                    <Parameter Name="WarehouseOrder" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Warehouse Order"/>
+                </FunctionImport>
+                <FunctionImport Name="UnassignWarehouseOrder" ReturnType="cds_xcrvwmxapi_whse_order_task.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_xcrvwmxapi_whse_order_task.WarehouseOrderType">
+                    <Parameter Name="Warehouse" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Warehouse Number"/>
+                    <Parameter Name="WarehouseOrder" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Warehouse Order"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations Target="cds_xcrvwmxapi_whse_order_task.cds_xcrvwmxapi_whse_order_task_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_xcrvwmxapi_whse_order_task.cds_xcrvwmxapi_whse_order_task_Entities/WarehouseOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xcrvwmxapi_whse_order_task.cds_xcrvwmxapi_whse_order_task_Entities/WarehouseTask" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xcrvwmxapi_whse_order_task.cds_xcrvwmxapi_whse_order_task_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xcrvwmxapi_whse_order_task.SAP__Currency/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+            </Annotations>
+            <Annotations Target="cds_xcrvwmxapi_whse_order_task.SAP__UnitOfMeasure/UnitCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+                <Annotation Term="SAP__CodeList.ExternalCode" Path="ExternalCode"/>
+            </Annotations>
+            <Annotations Target="cds_xcrvwmxapi_whse_order_task.SAP__UnitOfMeasure" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.AlternateKeys">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="Key">
+                                <Collection>
+                                    <Record>
+                                        <PropertyValue Property="Name" Path="ExternalCode"/>
+                                        <PropertyValue Property="Alias" String="ExternalCode"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://s4hana2021:8002/sap/opu/odata/crvwm/API_WHSE_OTASK_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://s4hana2021:8002/sap/opu/odata/crvwm/API_WHSE_OTASK_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

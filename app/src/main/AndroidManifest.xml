@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".app.SAPWizardApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/application_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".app.MainBusinessActivityT2"
+            android:exported="false" />
+        <activity
+            android:name=".app.WelcomeActivity"
+            android:exported="true"
+            android:theme="@style/splashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".app.MainBusinessActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".mdui.EntitySetListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".mdui.physicalinventorycountset.PhysicalInventoryCountSetActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/application_name"
+            android:launchMode="singleTop"
+            android:parentActivityName=".mdui.EntitySetListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".mdui.EntitySetListActivity" />
+        </activity>
+        <activity
+            android:name=".mdui.repackhuitemset.RepackHuItemSetActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/application_name"
+            android:launchMode="singleTop"
+            android:parentActivityName=".mdui.EntitySetListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".mdui.EntitySetListActivity" />
+        </activity>
+        <activity
+            android:name=".mdui.SettingsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|fontScale|uiMode|layoutDirection|locale"
+            android:label="@string/settings_activity_name"
+            android:launchMode="singleTop"
+            android:parentActivityName=".mdui.EntitySetListActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.sap.cloud.mobile.foundation.authentication.OtpResponseActivity"
+            android:exported="true"
+            tools:node="replace">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="com.sap.pickingTestewm.xcallbackurl" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
